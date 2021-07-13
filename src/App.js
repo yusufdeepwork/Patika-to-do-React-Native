@@ -7,6 +7,7 @@
  */
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import InputCard from './components/InputCard';
 
 const App = () => {
   const [todoList, setTodoList] = useState([]);
@@ -17,6 +18,7 @@ const App = () => {
         <Text style={styles.title}>Yapılacaklar</Text>
         <Text style={styles.title}>{activeCount}</Text>
       </View>
+      <InputCard setTodoList={setTodoList} todoList={todoList} />
     </SafeAreaView>
   );
 };
