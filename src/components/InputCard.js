@@ -7,7 +7,7 @@ import {
   Text,
 } from 'react-native';
 
-const InputCard = ({setTodoList, todoList}) => {
+const InputCard = ({setTodoList, todoList, setActiveCount}) => {
   const [todo, setTodo] = useState();
 
   return (
@@ -24,7 +24,11 @@ const InputCard = ({setTodoList, todoList}) => {
           styles.button,
           {backgroundColor: `${todo ? '#eaa419' : '#7c7c84'}`},
         ]}
-        onPress={() => setTodoList(() => [...todoList, todo])}
+        onPress={() => {
+          setTodoList(() => [...todoList, todo]);
+          setActiveCount(prevState => prevState + 1);
+          setTodo('');
+        }}
         disabled={!todo}>
         <Text style={{fontSize: 20, color: 'white'}}>Kaydet</Text>
       </TouchableOpacity>
